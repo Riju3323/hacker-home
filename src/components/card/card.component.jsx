@@ -6,9 +6,10 @@ export const Card = props => (
   <div className='card-container'>
     <img
       alt='hacker'
-      src={`https://robohash.org/${props.hacker.id}?set=set2&size=180x180`}
+      src={`https://avatars.dicebear.com/api/adventurer/${props.hacker.id}.svg`}
     />
-    <h2> {props.hacker.name} </h2>
+    <h2> {props.hacker.username} </h2>
+    <h3>{props.hacker.website}</h3>
     <p> {props.hacker.email} </p>
   </div>
 );
