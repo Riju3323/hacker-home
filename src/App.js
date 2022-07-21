@@ -34,12 +34,17 @@ class App extends Component {
 
 
   render() {
-    const filteredhackers = this.state.hackers.filter((hacker)=>{
-      return hacker.name.toLocaleLowerCase().includes(this.state.searchField)
+
+    const { hackers, searchField} = this.state;
+    const {onSearchChange} = this;
+
+
+    const filteredhackers = hackers.filter((hacker)=>{
+      return hacker.name.toLocaleLowerCase().includes(searchField)
     })
     return (
       <div className="App">
-        <input className="Search-box" type='search' placeholder="Search Here...."  onChange={this.onSearchChange}/>
+        <input className="Search-box" type='search' placeholder="Search Here...."  onChange={onSearchChange}/>
         {filteredhackers.map((hacker) => {
           return (
             <div key={hacker.id}>
