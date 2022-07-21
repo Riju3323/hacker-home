@@ -28,12 +28,13 @@ class App extends Component {
   render() {
     const { hackers, searchField } = this.state;
     const filteredhackers = hackers.filter(hacker =>
-      hacker.name.toLowerCase().includes(searchField.toLowerCase())
+      hacker.username.toLowerCase().includes(searchField.toLowerCase())
     );
 
     return (
       <div className='App'>
-        <h1>hackers Rolodex</h1>
+        <h1 className='hackhome'>Hacker Home</h1>
+        <h3 className='hiremsg'>Hire a Hacker to Help You Out</h3>
         <SearchBox onSearchChange={this.onSearchChange} />
         <CardList hackers={filteredhackers} />
       </div>

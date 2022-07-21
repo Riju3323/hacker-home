@@ -1,7 +1,8 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  background-color: #95dada;
+  background: rgb(190,249,251);
+  background: radial-gradient(circle, rgba(190,249,251,0.6502976190476191) 0%, rgba(16,31,71,1) 87%);
   border: 1px solid grey;
   border-radius: 5px;
   padding: 25px;
@@ -14,4 +15,17 @@
 
 .card-container:hover {
   transform: scale(1.05);
+}
+
+.usernameh {
+  color: rgb(0, 0, 0);
+}
+
+.email {
+  color: rgb(0, 0, 0);
+}
+
+.websiteh {
+  color: rgb(0, 0, 0);
+  font-size: 1.25em;
 }

@@ -8,8 +8,8 @@ export const Card = props => (
       alt='hacker'
       src={`https://avatars.dicebear.com/api/adventurer/${props.hacker.id}.svg`}
     />
-    <h2> {props.hacker.username} </h2>
-    <h3>{props.hacker.website}</h3>
-    <p> {props.hacker.email} </p>
+    <h2 className='usernameh'> {props.hacker.username} </h2>
+    <h3 className='websiteh'>WebSite - {props.hacker.website}</h3>
+    <p className='email'>Email - {props.hacker.email} </p>
   </div>
 );

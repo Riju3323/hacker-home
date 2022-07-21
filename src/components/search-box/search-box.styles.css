@@ -1,9 +1,17 @@
 .search-box {
   -webkit-appearance: none;
-  border: none;
+  border: solid;
+  border-width: 5px;
+  border-color: black;
+  border-radius: 999px;
   outline: none;
-  padding: 10px;
-  width: 150px;
-  line-height: 30px;
-  margin-bottom: 30px;
+  padding: 1rem;
+  width: 40vh;
+  height: 4vh;
+  line-height: 1em;
+}
+.searchbdiv {
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
 }
