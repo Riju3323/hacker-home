@@ -1,5 +1,9 @@
-import { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react';
+
+import { CardList } from './components/card-list/card-list.component';
+import { SearchBox } from './components/search-box/search-box.component';
+
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -7,51 +11,31 @@ class App extends Component {
 
     this.state = {
       hackers: [],
-      searchField: ""
+      searchField: ''
     };
   }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) =>
-        this.setState(
-          () => {
-            return { hackers: users };
-          },
-          () => {
-            console.log(this.state);
-          }
-        )
-      );
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => this.setState({ hackers: users }));
   }
-  onSearchChange = (event)=> {
-    const searchField = event.target.value.toLocaleLowerCase();
-    this.setState(()=> {
-      return {searchField};
-    })}
 
-
+  onSearchChange = event => {
+    this.setState({ searchField: event.target.value });
+  };
 
   render() {
+    const { hackers, searchField } = this.state;
+    const filteredhackers = hackers.filter(hacker =>
+      hacker.name.toLowerCase().includes(searchField.toLowerCase())
+    );
 
-    const { hackers, searchField} = this.state;
-    const {onSearchChange} = this;
-
-
-    const filteredhackers = hackers.filter((hacker)=>{
-      return hacker.name.toLocaleLowerCase().includes(searchField)
-    })
     return (
-      <div className="App">
-        <input className="Search-box" type='search' placeholder="Search Here...."  onChange={onSearchChange}/>
-        {filteredhackers.map((hacker) => {
-          return (
-            <div key={hacker.id}>
-              <h1>{hacker.name}</h1>
-            </div>
-          );
-        })}
+      <div className='App'>
+        <h1>hackers Rolodex</h1>
+        <SearchBox onSearchChange={this.onSearchChange} />
+        <CardList hackers={filteredhackers} />
       </div>
     );
   }
