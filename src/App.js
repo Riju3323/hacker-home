@@ -25,6 +25,13 @@ class App extends Component {
         )
       );
   }
+  onSearchChange = (event)=> {
+    const searchField = event.target.value.toLocaleLowerCase();
+    this.setState(()=> {
+      return {searchField};
+    })}
+
+
 
   render() {
     const filteredhackers = this.state.hackers.filter((hacker)=>{
@@ -32,12 +39,7 @@ class App extends Component {
     })
     return (
       <div className="App">
-        <input className="Search-box" type='search' placeholder="Search Here...."  onChange={(event)=> {
-          const searchField = event.target.value.toLocaleLowerCase();
-          this.setState(()=> {
-            return {searchField};
-          })
-        }}/>
+        <input className="Search-box" type='search' placeholder="Search Here...."  onChange={this.onSearchChange}/>
         {filteredhackers.map((hacker) => {
           return (
             <div key={hacker.id}>
